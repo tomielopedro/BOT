@@ -25,7 +25,7 @@ venv.bak/
 # Arquivos de configuração
 *.env
 *.pkl
-
+*.pdf
 # Outros arquivos
 *.DS_Store
 Thumbs.db
