@@ -10,11 +10,12 @@ ENV/
 env.bak/
 venv.bak/
 *.egg-info/
-.dist-info/
+*.dist-info/
 
 # Teste
 .pytest_cache/
-
+.wwebjs_auth/
+.wwebjs_cache/
 # Configurações do editor
 .idea/
 .vscode/
@@ -26,9 +27,18 @@ venv.bak/
 *.env
 *.pkl
 *.pdf
+
 # Outros arquivos
 *.DS_Store
 Thumbs.db
 
 # Jupyter Notebook
 .ipynb_checkpoints
+*.ipynb
+
+# Diretórios de pacotes do Jupyter e arquivos relacionados
+*.whl
+node_modules/          # Ignora pacotes do Node.js (whatsapp-web.js)
+package-lock.json      # Ignora o lockfile do npm
+
+# Arquivos de configuração do WhatsApp Web J
