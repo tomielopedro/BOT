@@ -1,0 +1,34 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Distribuições
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+.dist-info/
+
+# Teste
+.pytest_cache/
+
+# Configurações do editor
+.idea/
+.vscode/
+
+# Arquivos de logs
+*.log
+
+# Arquivos de configuração
+*.env
+*.pkl
+
+# Outros arquivos
+*.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
