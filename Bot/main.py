@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_openai import ChatOpenAI
 from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
@@ -10,13 +10,14 @@ from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
-
+from notion import PageNotion
 import os
 
 # Carregar variáveis de ambiente
 load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-
+api_key = os.getenv("NOTION_API_KEY")
+page_id = os.getenv("AVEC_PAGE_ID")
 # Inicializar a aplicação FastAPI
 app = FastAPI()
 
@@ -28,9 +29,10 @@ class Question(BaseModel):
 llm = ChatOpenAI(model="gpt-4o")
 
 # Carregar e processar o documento PDF
-file_path = "./avec.pdf"
+file_path = "Base/pagina_notion.pdf"
 loader = PyPDFLoader(file_path)
 docs = loader.load()
+print(loader)
 
 # Separar o texto em partes
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
